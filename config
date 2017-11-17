@@ -66,7 +66,7 @@ exec --no-startup-id  /usr/bin/synclient TouchpadOff=3
 # Default font:
 #font pango:monospace 8
 #
-# Beter title font:
+# Better title font:
 font xft:Roboto Sans 9 
 
 ## Various mouse controls ##
@@ -360,6 +360,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Hide i3 bar toggle
+bindsym $mod+m bar mode toggle bar-1
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 #bar {
@@ -369,7 +371,46 @@ bindsym $mod+r mode "resize"
 
 bar {
         status_command /usr/bin/conky-i3bar
+        #tray_output DP-1-2
+        # Note: "xrandr --output DP-1-2 --primary" may be necessary
+        tray_output primary
+        output DP-1-2
+        font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+        font pango:Roboto Sans Mono 11
+colors{
+                background #000000
+                statusline #ffffff
+                separator #666666
+# Class                             Border  Back.   Font
+                focused_workspace  #45ADE5 #2C82DD #ffffff
+#                 #                active_workspace   #45ADE5 #08344C #1883BC
+#                 #                inactive_workspace #45ADE5 #000000 #1883BC
+                urgent_workspace   #2f343a #FF0707 #ffffff
+                }
+}
+
+bar {
+        status_command /usr/bin/conky-i3bar
+        #tray_output eDP-1-1
+        output eDP-1-1
+        font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+        font pango:Roboto Sans Mono 6
+colors{
+                background #000000
+                statusline #ffffff
+                separator #666666
+# Class                             Border  Back.   Font
+                focused_workspace  #45ADE5 #2C82DD #ffffff
+#                 #                active_workspace   #45ADE5 #08344C #1883BC
+#                 #                inactive_workspace #45ADE5 #000000 #1883BC
+                urgent_workspace   #2f343a #FF0707 #ffffff
+                }
+}
+
+bar {
+        status_command /usr/bin/conky-i3bar
         #tray_output DP-1
+        output HDMI-1-1
         font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
         font pango:Roboto Sans Mono 11
 colors{
